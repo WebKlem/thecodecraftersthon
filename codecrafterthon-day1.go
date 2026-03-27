@@ -1,14 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	var num1, num2 int
+	var num1, num2 string
 	for {
-		fmt.Println("enter a number: ")
+		fmt.Println("enter num1: ")
 		fmt.Scan(&num1)
-		fmt.Println("enter another number: ")
+		num1, err := strconv.ParseFloat(num1, 64)
+		if err != nil {
+			fmt.Println("error")
+			continue
+		}
+		fmt.Println("enter num2: ")
 		fmt.Scan(&num2)
+		num2, err := strconv.ParseFloat(num2, 64)
+		if err != nil {
+			fmt.Println("error")
+
+		}
 
 		fmt.Println("select an operator")
 		fmt.Println("1 - add")
